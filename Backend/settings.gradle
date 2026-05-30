@@ -1,0 +1,4 @@
+rootProject.name = 'TriathlonInot_Java'
+include 'Common'
+include 'Server'
+include 'Client'

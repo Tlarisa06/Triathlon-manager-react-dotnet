@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml" fx:controller="ro.mpp.triathlon.controller.MainController" style="-fx-font-size: 14px;">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
+        <Label fx:id="welcomeLabel" text="Arbitru: -" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Participanți (Alfabetic)">
+                <VBox spacing="15" style="-fx-padding: 15;">
+                    <TableView fx:id="allParticipantsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colName" text="Nume Participant" prefWidth="250"/>
+                            <TableColumn fx:id="colTotalPoints" text="Punctaj Total" prefWidth="150"/>
+                        </columns>
+                        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    </TableView>
+                    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #eeeeee;">
+                        <Label text="Adaugă puncte:"/>
+                        <TextField fx:id="pointsField" prefWidth="80"/>
+                        <Button text="Salvează Rezultat" onAction="#handleAddResult" style="-fx-background-color: #5cb85c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+            <Tab text="Raport Proba Mea (Descrescător)">
+                <VBox style="-fx-padding: 15;">
+                    <TableView fx:id="reportTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colReportName" text="Participant" prefWidth="250"/>
+                            <TableColumn fx:id="colReportPoints" text="Puncte" prefWidth="200"/>
+                        </columns>
+                        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>
